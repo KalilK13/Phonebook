@@ -1,9 +1,6 @@
 package review;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 //name : phoneNumber1, phoneNumber1
 //name: phoneNumber
 
@@ -77,7 +74,12 @@ public class PhoneBook {
 
     public List<String> getAllContactNames(){
         List<String> names = new ArrayList<>();
-        for(Map.Entry<String, List<String>> entry : phoneRecord.entrySet()){
+//        for(Map.Entry<String, List<String>> entry : phoneRecord.entrySet()){
+//            names.add(entry.getKey());
+//        }
+        Iterator<Map.Entry<String, List<String>>> iterator = phoneRecord.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, List<String>> entry = iterator.next();
             names.add(entry.getKey());
         }
         //need a list or container to store the names
